@@ -3,20 +3,9 @@
   See script in app.html and https://docs.typetura.com
 */
 :root {
-  --font-size-max: 115%;
+  --font-size-max: 125%;
   --line-height-min: 1.1;
   --line-height-max: 1.5;
-}
-
-@keyframes root {
-  0% {
-    font-size: 0%;
-    line-height: var(--line-height-min);
-  }
-  100% {
-    font-size: var(--font-size-max);
-    line-height: var(--line-height-max);
-  }
 }
 
 /*
@@ -25,65 +14,59 @@
   size (ignoring header font size)
 */
 :root {
-  --tt-key: root;
   --tt-ease: cubic-bezier(0, 0.75, 0.1, 0.9);
   --vertical-rhythm: calc(1rem * var(--font-size-max) * var(--line-height-max) * var(--vertical-rhythm-count));
   --vertical-rhythm-count: 1;
-  font-size: var(--font-size);
-  line-height: var(--line-height);
   color: var(--text-base);
 }
 
-@keyframes heading-and-p {
+@keyframes prose {
   0% {
     font-size: 0%;
     line-height: var(--line-height-min);
-    margin-bottom: 0;
+    margin-block-start: 0;
+    margin-block-end: 0;
   }
   100% {
     font-size: calc(var(--tt-scale) * var(--font-size-max));
     line-height: var(--line-height-max);
-    margin-bottom: var(--vertical-rhythm);
+    margin-block-start: 1.72rem;
+    margin-block-end: 1.72rem;
   }
 }
 
-p {
-  --tt-key: heading-and-p;
+article, p, blockquote {
+  --tt-key: prose;
+}
+
+p:first-child {
+  margin-block-start: 0px !important;
+}
+
+p:last-child {
+  margin-block-end: 0px !important;
 }
 
 h1 {
-  --tt-key: heading-and-p;
+  --tt-key: prose;
   --tt-scale: 2.4416;
   --vertical-rhythm-count: 2;
   color: var(--color-brand);
 }
 
 h2 {
-  --tt-key: heading-and-p;
+  --tt-key: prose;
   --tt-scale: 1.9527;
 }
 
 h3 {
-  --tt-key: heading-and-p;
+  --tt-key: prose;
   --tt-scale: 1.5627;
 }
 
 h4 {
-  --tt-key: heading-and-p;
+  --tt-key: prose;
   --tt-scale: 1.25;
-}
-
-@keyframes section {
-  0% {
-    margin-bottom: 0;
-  }
-  100% {
-    margin-bottom: var(--vertical-rhythm);
-  }
-}
-
-section {
-  --tt-key: section;
 }
 
 /* Links */

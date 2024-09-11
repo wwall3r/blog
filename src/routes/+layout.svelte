@@ -57,7 +57,7 @@
 
   main {
     width: 100%;
-    max-width: 42rem;
+    max-width: 55rem;
     margin: 6rem auto;
     padding: 0 1rem;
   }

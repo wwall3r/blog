@@ -3,7 +3,7 @@
 </div>
 <style>
   .callout {
-    background: var(--lightAccent);
+    background: var(--color-base-100);
     padding: 2rem 1rem;
     width: calc(100% + 2rem);
     max-width: unset;
