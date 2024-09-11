@@ -9,7 +9,7 @@ export const siteTitle = "My Awesome Blog";
 export const siteDescription = "Built with the SvelteKit Static Blog Starter";
 export const siteURL = "wallw.dev";
 export const siteLink = "https://github.com/wwall3r/blog";
-export const siteAuthor = "- William Wall";
+export const siteAuthor = "William Wall";
 export const timezoneOffset = -360 * 60 * 1000;
 
 // Controls how many posts are shown per page on the main blog index pages

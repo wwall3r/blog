@@ -13,6 +13,8 @@
 
 <h1>Blog</h1>
 
+<p>Want updates? Just <a href="/api/rss.xml">subscribe to the RSS feed</a>.</p>
+
 <PostsList posts={data.posts} />
 
 <Pagination currentPage={1} totalPosts={data.total} />

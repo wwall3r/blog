@@ -20,7 +20,6 @@
 	{#each posts as post}
 		<li>
 			<article class="post">
-				<small>{getHumanDate(post.date)}</small>
 				<hgroup>
 					{#if post.coverImage}
 						<img
@@ -37,6 +36,7 @@
 				<a aria-label="Post: {post.title}, on {getHumanDate(post.date)}" href="/blog/{post.slug}">Read more</a>
 				<footer>
 					<a href="/blog/{post.slug}" class="secondary">Read more</a>
+					<small>{getHumanDate(post.date)}</small>
 				</footer>
 			</article>
 		</li>
@@ -70,5 +70,11 @@
 		right: 0;
 		text-indent: -9999px;
 		z-index: 1;
+	}
+
+	.post > footer {
+		display: flex;
+		justify-content: space-between;
+		align-items: baseline;
 	}
 </style>

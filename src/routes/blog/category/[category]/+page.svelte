@@ -16,13 +16,14 @@
 	<title>Category: {category}</title>
 </svelte:head>
 
-<h1>Blog category: {category}</h1>
+<h1>Articles in "{category}"</h1>
 
 {#if posts.length}
 	<PostsList {posts} />
 	<Pagination currentPage={page} totalPosts={total} path="/blog/category/{category}/page" />
 {:else}
-	<p><strong>Ope!</strong> Sorry, couldn't find any posts in the category "{category}".</p>
+	<p><strong>Doh!</strong> Sorry, couldn't find any posts in the category
+		"{category}."</p>
 
 	<p><a href="/blog">Back to blog</a></p>
 {/if}

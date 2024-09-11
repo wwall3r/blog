@@ -44,3 +44,9 @@
 	</main>
 {/key}
 <Footer />
+
+<style>
+	main {
+		min-height: 100vh;
+	}
+</style>
