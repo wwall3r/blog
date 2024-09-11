@@ -19,9 +19,16 @@
   }
 }
 
+/*
+  --vertical-rhythm is a concept mentioned in https://typographyhandbook.com,
+  and the idea there is for consistent spacing between sections based on p text
+  size (ignoring header font size)
+*/
 :root {
   --tt-key: root;
   --tt-ease: cubic-bezier(0, 0.75, 0.1, 0.9);
+  --vertical-rhythm: calc(1rem * var(--font-size-max) * var(--line-height-max) * var(--vertical-rhythm-count));
+  --vertical-rhythm-count: 1;
   font-size: var(--font-size);
   line-height: var(--line-height);
   color: var(--text-base);
@@ -36,7 +43,7 @@
   100% {
     font-size: calc(var(--tt-scale) * var(--font-size-max));
     line-height: var(--line-height-max);
-    margin-bottom: calc(1rem * var(--tt-scale) * var(--font-size-max) * var(--line-height-max));
+    margin-bottom: var(--vertical-rhythm);
   }
 }
 
@@ -47,6 +54,7 @@ p {
 h1 {
   --tt-key: heading-and-p;
   --tt-scale: 2.4416;
+  --vertical-rhythm-count: 2;
 }
 
 h2 {
@@ -62,6 +70,19 @@ h3 {
 h4 {
   --tt-key: heading-and-p;
   --tt-scale: 1.25;
+}
+
+@keyframes section {
+  0% {
+    margin-bottom: 0;
+  }
+  100% {
+    margin-bottom: var(--vertical-rhythm);
+  }
+}
+
+section {
+  --tt-key: section;
 }
 
 /* Links */
