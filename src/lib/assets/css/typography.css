@@ -1,49 +1,88 @@
-body {
-  font-size: var(--font-base);
+/*
+  Using Typetura for breakpoint-less, intrinsic typography styling
+  See script in app.html and https://docs.typetura.com
+*/
+:root {
+  --font-size-max: 115%;
+  --line-height-min: 1.1;
+  --line-height-max: 1.5;
+}
+
+@keyframes root {
+  0% {
+    font-size: 0%;
+    line-height: var(--line-height-min);
+  }
+  100% {
+    font-size: var(--font-size-max);
+    line-height: var(--line-height-max);
+  }
+}
+
+:root {
+  --tt-key: root;
+  --tt-ease: cubic-bezier(0, 0.75, 0.1, 0.9);
+  font-size: var(--font-size);
+  line-height: var(--line-height);
   color: var(--text-base);
-  line-height: var(--font-line-height);
+}
+
+@keyframes heading-and-p {
+  0% {
+    font-size: 0%;
+    line-height: var(--line-height-min);
+    margin-bottom: 0;
+  }
+  100% {
+    font-size: calc(var(--tt-scale) * var(--font-size-max));
+    line-height: var(--line-height-max);
+    margin-bottom: calc(1rem * var(--tt-scale) * var(--font-size-max) * var(--line-height-max));
+  }
 }
 
 p {
-  margin-bottom: var(--vertical-rhythm);
+  --tt-key: heading-and-p;
 }
 
 h1 {
-  font-size: calc(2.4416 * var(--font-base));
-  margin-bottom: calc(2 * var(--vertical-rhythm));
+  --tt-key: heading-and-p;
+  --tt-scale: 2.4416;
 }
 
 h2 {
-  font-size: calc(1.9527 * var(--font-base));
-  margin-bottom: var(--vertical-rhythm);
+  --tt-key: heading-and-p;
+  --tt-scale: 1.9527;
 }
 
 h3 {
-  font-size: calc(1.5627 * var(--font-base));
-  margin-bottom: var(--vertical-rhythm);
+  --tt-key: heading-and-p;
+  --tt-scale: 1.5627;
 }
 
 h4 {
-  font-size: calc(1.25 * var(--font-base));
+  --tt-key: heading-and-p;
+  --tt-scale: 1.25;
 }
 
+/* Links */
 a {
   color: var(--color-neutral-100);
 }
 
+/* Lists */
 ul {
   list-style-type: square;
   padding-left: 1.5rem;
+}
 
-  ul {
-    list-style-type: circle;
-  }
+ul ul {
+  list-style-type: circle;
+}
 
-  ::marker {
-    color: var(--color-brand);
-  }
+ul ::marker {
+  color: var(--color-brand);
 }
 
 li {
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.4rem;
 }
