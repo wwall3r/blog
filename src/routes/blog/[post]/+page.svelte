@@ -1,7 +1,5 @@
 <!-- This file renders each individual blog post for reading. Be sure to update the svelte:head below -->
 <script>
-  import { fluidType } from '$lib/useFluidType';
-
 	export let data;
 
 	const { title, excerpt, date, updated, coverImage, coverWidth, coverHeight, categories } =
@@ -24,71 +22,56 @@
 	<!-- <meta name="twitter:image" content="https://yourdomain.com/image_path" /> -->
 </svelte:head>
 
-<article class="post" use:fluidType>
-	<!-- You might want to add an alt frontmatter attribute. If not, leaving alt blank here works, too. -->
-	<img
-		class="cover-image"
-		src={coverImage}
-		alt=""
-		style="aspect-ratio: {coverWidth} / {coverHeight};"
-		width={coverWidth}
-		height={coverHeight}
-	/>
+<section>
+	<header>
+		{#if coverImage}
+			<!-- You might want to add an alt frontmatter attribute. If not, leaving alt blank here works, too. -->
+			<img
+				class="cover-image"
+				src={coverImage}
+				alt=""
+				style="aspect-ratio: {coverWidth} / {coverHeight};"
+				width={coverWidth}
+				height={coverHeight}
+			/>
+		{/if}
 
-	<h1>{title}</h1>
+		<hgroup>
+			<h1>{title}</h1>
+			<p>{excerpt}</p>
+		</hgroup>
 
-	<div class="meta">
-		<b>Published:</b>
-		{date}
-		<br />
-		<b>Updated:</b>
-		{updated}
-	</div>
+		<p>
+			<small>
+			Published: {date}
+			Updated: {updated}
+			</small>
+		</p>
+	</header>
 
 	<svelte:component this={PostContent} />
 
 	{#if categories}
-		<aside class="post-footer">
-			<h2>Posted in:</h2>
-			<ul>
-				{#each categories as category}
-					<li>
-						<a href="/blog/category/{category}/">
-							{category}
-						</a>
-					</li>
-				{/each}
-			</ul>
-		</aside>
+		<hr />
+		<footer>
+			<h4>Posted in:</h4>
+			<nav>
+				<ul>
+					{#each categories as category}
+						<li>
+							<a href="/blog/category/{category}/">
+								{category}
+							</a>
+						</li>
+					{/each}
+				</ul>
+			</nav>
+		</footer>
 	{/if}
-</article>
+</section>
 
 <style>
-  .post .meta {
-    font-size: 0.8rem;
-    margin-bottom: 4rem;
-  }
-
-  .post img + h1 {
-    margin-top: 1rem;
-  }
-
-  .post-footer ul {
-    padding: 0;
-  }
-
-  .post-footer li {
-    display: inline-block;
-    font-size: 0.8rem;
-  }
-
-  .post-footer li a {
-    background-color: var(--lightAccent);
-    text-transform: uppercase;
-    font-weight: bold;
-  }
-
-  .post-footer li + li {
-    margin-left: 0.5rem;
-  }
+	.cover-image {
+		width: 100%;
+	}
 </style>

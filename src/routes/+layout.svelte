@@ -37,28 +37,10 @@
 	The below markup is used on every page in the site. The <slot> is where the page's
 	actual contents will show up.
 -->
-<div class="layout" class:open={$isMenuOpen}>
-	<Header />
-	{#key data.path}
-		<main id="main" tabindex="-1" in:fade={transitionIn} out:fade={transitionOut}>
-			<slot />
-		</main>
-	{/key}
-	<Footer />
-</div>
-
-<style>
-  .layout {
-    display: grid;
-    grid-template-columns: 100%;
-    grid-template-rows: auto 1fr auto;
-    min-height: 100vh;
-  }
-
-  main {
-    width: 100%;
-    max-width: 55rem;
-    margin: 6rem auto;
-    padding: 0 1rem;
-  }
-</style>
+<Header />
+{#key data.path}
+	<main class="container" tabindex="-1" in:fade={transitionIn} out:fade={transitionOut}>
+		<slot />
+	</main>
+{/key}
+<Footer />

@@ -2,12 +2,11 @@
 author: "William Wall"
 title: "Making a Website"
 date: "2023-07-18"
-updated: "2023-07-18"
+updated: "2024-09-11"
 categories:
   - "projects"
   - "making of"
   - "svelte"
-  - "intrinsic design"
 coverImage: "/images/jefferson-santos-fCEJGBzAkrU-unsplash.jpg"
 coverWidth: 16
 coverHeight: 9
@@ -28,8 +27,8 @@ I had a co-worker whose first question upon hearing about this endeavor was,
 Well, none.
 
 Obviously rolling your own blog platform is a touch silly. You can probably use
-any number of wordpress plugins, webflow, or other services to generate a blog
-that has all kinds of fancy features to get you all hooked up with comments
+any number of wordpress plugins, webflow, ghost.org, or other services to generate 
+a blog that has all kinds of fancy features to get you all hooked up with comments
 and link-backs and social integrations and marketing.
 
 That sounds terrible. I have precious few social accounts as it is. We're gonna
@@ -40,7 +39,7 @@ those.
 
 ## Decisions
 
-Static site. Svelte/SvelteKit. Markdown. CDNs. Intrinsic Design.
+Static site. Svelte/SvelteKit. Markdown. CDNs. Pico CSS.
 
 ### Why?
 
@@ -81,23 +80,21 @@ Not that I think anyone will actually read this, but on the off chance they do,
 I'm not particularly enthused about solving hugs-of-death from link aggregators
 or DDOS attempts from one of my friends who might think they're funny.
 
-Probably Fastly or Cloudflare.
+Probably Fastly.
 
-#### Intrinsic Design
+#### Pico CSS
 
-Because this is something I'd like to learn more about. The vast majority of
-projects, off-the-shelf design systems, and styling libraries over the last 15
-years have targeted Responsive Design with breakpoints at various sizes.
-Intrinsic Design says we can do something smoother without using breakpoint cases.
+Because I just want to write semantic HTML and have it look nice without having
+to think about it.
 
-A blog doesn't typically have nearly as many components as a full-blown app, but
-I'm going to attempt to roll my own design system with that in mind to see how
-it feels.
+[Pico CSS](https://picocss.com)
 
 #### Deployment
 
-Either AWS bucket or GitHub pages. If the CDN part goes well, it effectively
-doesn't matter.
+I run my own deployment infrastructure, which I'm extremely happy with and
+therefore will likely write a series on it.
+
+The core of it is [Coolify](https://coolify.io).
 
 ## Wrapping up
 

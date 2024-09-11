@@ -5,8 +5,7 @@
 <ul class="posts-list">
 	{#each posts as post}
 		<li>
-			<article>
-				<a href="/blog/{post.slug}">
+				<hgroup>
 					<img
 						src={post.coverImage}
 						alt=""
@@ -15,12 +14,12 @@
 						style="ratio: {post.coverWidth} / {post.coverHeight}"
 					/>
 					<h2>
-						{post.title}
+						<a href="/blog/{post.slug}">
+							{post.title}
+						</a>
 					</h2>
-				</a>
-			</article>
-
-			<p>{post.excerpt}</p>
+					<p>{post.excerpt}</p>
+				</hgroup>
 		</li>
 	{/each}
 </ul>
@@ -32,14 +31,11 @@
   }
 
   .posts-list li {
-    margin-bottom: 6rem;
+		list-style: none;
+    margin-bottom: 2rem;
   }
 
   .posts-list img + h2 {
     margin-top: 1rem;
-  }
-
-  .posts-list a {
-    display: block;
   }
 </style>
