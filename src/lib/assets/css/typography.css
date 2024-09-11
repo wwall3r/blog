@@ -3,91 +3,89 @@
   See script in app.html and https://docs.typetura.com
 */
 :root {
-  --font-size-max: 125%;
-  --line-height-min: 1.1;
-  --line-height-max: 1.5;
-}
-
-/*
-  --vertical-rhythm is a concept mentioned in https://typographyhandbook.com,
-  and the idea there is for consistent spacing between sections based on p text
-  size (ignoring header font size)
-*/
-:root {
-  --tt-ease: cubic-bezier(0, 0.75, 0.1, 0.9);
-  --vertical-rhythm: calc(1rem * var(--font-size-max) * var(--line-height-max) * var(--vertical-rhythm-count));
-  --vertical-rhythm-count: 1;
-  color: var(--text-base);
+    --font-size-max: 125%;
+    --line-height-min: 1.1;
+    --line-height-max: 1.5;
+    --tt-scale: 1;
+    --tt-max: 848;
+    --tt-ease: cubic-bezier(0, 0.75, 0.1, 0.9);
+    line-height: var(--line-height-max);
+    font-size: var(--font-size-max);
+    color: var(--text-base);
 }
 
 @keyframes prose {
-  0% {
-    font-size: 0%;
-    line-height: var(--line-height-min);
-    margin-block-start: 0;
-    margin-block-end: 0;
-  }
-  100% {
-    font-size: calc(var(--tt-scale) * var(--font-size-max));
-    line-height: var(--line-height-max);
-    margin-block-start: 1.72rem;
-    margin-block-end: 1.72rem;
-  }
+    0% {
+        font-size: 0%;
+        line-height: var(--line-height-min);
+        margin-block-start: 0;
+        margin-block-end: 0;
+    }
+    100% {
+        font-size: 100%;
+        line-height: var(--line-height-max);
+
+        /*
+          Apparently browsers don't like calc for margin-block-start/end
+          should be vertical-rhythm-count * font-size-max * line-height-max
+        */
+        margin-block-start: 1.72rem;
+        margin-block-end: 1.72rem;
+    }
 }
 
-article, p, blockquote {
-  --tt-key: prose;
+main, article, p, blockquote, code {
+    --tt-key: prose;
 }
 
 p:first-child {
-  margin-block-start: 0px !important;
+    margin-block-start: 0px !important;
 }
 
 p:last-child {
-  margin-block-end: 0px !important;
+    margin-block-end: 0px !important;
 }
 
 h1 {
-  --tt-key: prose;
-  --tt-scale: 2.4416;
-  --vertical-rhythm-count: 2;
-  color: var(--color-brand);
+    --tt-key: prose;
+    --tt-scale: 2.4416;
+    color: var(--color-brand);
 }
 
 h2 {
-  --tt-key: prose;
-  --tt-scale: 1.9527;
+    --tt-key: prose;
+    --tt-scale: 1.9527;
 }
 
 h3 {
-  --tt-key: prose;
-  --tt-scale: 1.5627;
+    --tt-key: prose;
+    --tt-scale: 1.5627;
 }
 
 h4 {
-  --tt-key: prose;
-  --tt-scale: 1.25;
+    --tt-key: prose;
+    --tt-scale: 1.25;
 }
 
 /* Links */
 a {
-  color: var(--color-neutral-100);
+    color: var(--color-neutral-100);
 }
 
 /* Lists */
 ul {
-  list-style-type: square;
-  padding-left: 1.5rem;
+    list-style-type: square;
+    padding-left: 1.5rem;
 }
 
 ul ul {
-  list-style-type: circle;
+    list-style-type: circle;
 }
 
 ul ::marker {
-  color: var(--color-brand);
+    color: var(--color-brand);
 }
 
 li {
-  margin-bottom: 0.4rem;
+    margin-bottom: 0.4rem;
 }

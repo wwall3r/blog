@@ -13,6 +13,31 @@ coverHeight: 9
 excerpt: Smooth typography styling for every device.
 ---
 
+<style>
+    .card {
+        max-width: 20rem;
+        background-color: var(--color-base-100);
+        border-radius: 0.5rem;
+        padding: 1rem;
+    }
+
+    .callout {
+        background: var(--color-base-100);
+        border-radius: 0.5rem;
+        margin-left: 50%;
+        max-width: 95vw;
+        padding: 2rem;
+        width: min(95vw, 100% + 8rem);
+        transform: translateX(-50%);
+    }
+
+    .clamped {
+        max-width: 100%;
+        --tt-key: none;
+        font-size: clamp(100%, calc(0.95rem + 0.25vw), 125%);
+    }
+</style>
+
 Disclaimer: I'm not a designer or much of a font expert at all. But the designer
 sending you (and me) stuff probably is.
 
@@ -32,71 +57,72 @@ for all screen sizes.
 ## Typography
 
 In a lot (and I do mean a _lot_) of sites I've previously done, I didn't even
-think about this, and just left it as the browser default. Honestly, other than
-perhaps being a bit plain, that's not a terrible plan. Browser vendors have put
-a lot of time into their default styles to be readable and accessible for most
-users.
+think about this, and just left it as the browser default or however the component
+library which I was using set it up. Honestly, that's not a terrible plan, as
+browser vendors and design system authors have put a lot of time into making their
+default typography highly readable and accessible to users.
 
-However, many sites use a particular font or set of fonts, and then define sizes
-for various screen widths and the typical typography elements like `p`, `h1-6`,
-etc. You can see this in the "Responsive Modular Scale" suggestion in the
-[Typography Handbook](https://typographyhandbook.com/).
+Some sites use a particular font or set of fonts, and then define sizes
+for various screen widths (so media breakpoints) and the typical typography
+elements like `p`, `h1-6`, etc. You can see this in the "Responsive Modular Scale"
+suggestion in the [Typography Handbook](https://typographyhandbook.com/).
 
-## Option 1: calc()
+## Option 1: clamp()
 
 If you look up "Fluid Typography", you get some pretty cool solutions. Here's
-one using `calc`:
+one using `clamp`:
 
 ```css
-/* example of math */
-.example {
-    font-size: calc([min size] + ([max size] - [min size]) * (100vw - [min viewport width] ) / ([max viewport width] - [min viewport width])));
+:root {
+    --font-size: clamp(100%, calc(0.95rem + 0.25vw), 125%);
 }
 
-/* actual code */
-.fluid-type {
-  font-size: 0.875rem;
+body {
+    font-size: var(--font-size);
 }
 
-@media screen and (min-width: 20rem) {
-  .fluid-type {
-    font-size: calc(0.875rem + 0.5 * ((100vw - 20rem) / 60));
-  }
-}
-
-@media screen and (min-width: 80rem) {
-  .fluid-type {
-    font-size: 1.375rem;
-  }
+h1 {
+    font-size: calc(2.5 * var(--font-size));
 }
 ```
-[from Mike Riethmuller](https://www.madebymike.com.au/writing/fluid-type-calc-examples/)
 
 That one linearly scales the font size between the minimum and maximum widths we
 are targeting with the design. Those are all well and good, and you could
-potentially scale your `line-height` and margins in a similar manner. But what
-if we wanted something other than a linear scale?
+potentially scale your `line-height` and margins in a similar manner.
 
-That leads us into our second option.
+You can see it in action in the box below by resizing your browser:
+<div class="card clamped">
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Odio pellentesque
+        diam volutpat commodo sed egestas. Ultrices mi tempus imperdiet nulla
+        malesuada pellentesque.
+    </p>
+</div>
+
+Pros:
+- It is fluidly responsive to viewport width changes
+- CSS-only
+
+Cons:
+- It is only responsive to the viewport width, not the container width. This might
+be possible as CSS Container queries become more standardized and widely available.
+As it stands now, this is typically only responding to the viewport width.
+- Interpolation easing is difficult if you want something other than linear.
+
 
 ## Option 2: Easing and Animation
 
 I happened across two articles: [one from goldsguide.com](https://goldsguide.com/typetura)
 and [one on CSS-Tricks](https://css-tricks.com/intrinsic-typography-is-the-future-of-styling-text-on-the-web/).
 Both of them referenced [Typetura](https://docs.typetura.com/) as a small library to
-help with something they dubbed _Intrinsic Typesetting_. This buzzword matching
+help with something they dubbed _Intrinsic Typesetting_. The buzzword matching
 was too strong so I went to check it out.
 
-Typetura handles two things that are difficult with the previous `calc()` method:
-1. The type can be set based on container width rather than simply the overall
-   width of the page. This might be possible with `calc()` more directly as
-   CSS Container queries are standardized and more widely available. However, as
-   it stands now, that method is _only_ based on the overall page width.
-2. Easing. While we could bake an easing equation into our `calc()` method above,
-   that's going to get long and unwieldy quite quickly.
-
-If you inspect some of the elements in the Gold's Guide example above, you'll see
-the CSS which is doing most of the magic:
+Typetura handles the two downsides to the `clamp/calc` method above, namely
+responding to the container width and also handling easing functions. If you
+inspect some of the elements in the Gold's Guide example above, you'll see the
+CSS which is doing most of the magic:
 
 ```css
 animation:
@@ -121,26 +147,30 @@ script):
 ```css
 /* define our root variables */
 :root {
-  --font-size-max: 125%;
-  --line-height-min: 1.1;
-  --line-height-max: 1.5;
-  --tt-ease: cubic-bezier(0, 0.75, 0.1, 0.9);
+    --font-size-max: 125%;
+    --line-height-min: 1.1;
+    --line-height-max: 1.5;
+    --tt-ease: cubic-bezier(0, 0.75, 0.1, 0.9);
+    font-size: var(--font-size-max);
+    line-height: var(line-height-max);
 }
 
+/* the animation name needs to match --tt-key */
 @keyframes text {
-  /* A font-size of 0% can't be read, but neither can a width of 0 */
-  0% {
-    font-size: 0%;
-    line-height: var(--line-height-min);
-  }
-  100% {
-    font-size: var(--font-size-max);
-    line-height: var(--line-height-max);
-  }
+    /* A font-size of 0% can't be read,
+       but neither can a width of 0 */
+    0% {
+        font-size: 0%;
+        line-height: var(--line-height-min);
+    }
+    100% {
+        font-size: 100%;
+        line-height: var(--line-height-max);
+    }
 }
 
 p {
-  --tt-key: text;
+    --tt-key: text;
 }
 ```
 
@@ -156,9 +186,10 @@ you're on mobile that is tougher, but you can perhaps switch to landscape view
 or try device with a different size.
 
 Note how the text in this callout is slightly larger than the body text, as its
-width is slightly wider than the rest of the article.
+width is slightly wider than the rest of the article (on a larger screen).
 
-<div class="card" style="width: calc(100% + 8rem); margin: 2rem 0 2rem -4rem; padding: 2rem; background: var(--color-base-100); max-width: unset; border-radius: 0.5rem">
+
+<div class="card callout">
     <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Odio pellentesque
@@ -170,7 +201,7 @@ width is slightly wider than the rest of the article.
 These cards have a smaller width, and therefore use a smaller font size.
 
 <div style="display: flex; gap: 0.5rem">
-    <div class="card" style="max-width: 20rem; background-color: var(--color-base-100); border-radius: 0.5rem; padding: 1rem;">
+    <div class="card">
         <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
             tempor incididunt ut labore et dolore magna aliqua. Odio pellentesque
@@ -178,7 +209,7 @@ These cards have a smaller width, and therefore use a smaller font size.
             malesuada pellentesque.
         </p>
     </div>
-    <div class="card" style="max-width: 20rem; background-color: var(--color-base-100); border-radius: 0.5rem; padding: 1rem;">
+    <div class="card">
         <p>
             "The secret of getting ahead is getting started. The secret of
             getting started is breaking your complex overwhelming tasks into
