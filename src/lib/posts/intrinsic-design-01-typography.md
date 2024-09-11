@@ -15,9 +15,9 @@ excerpt: Smooth typography styling for every device.
 
 <style>
     .card {
-        max-width: 20rem;
         background-color: var(--color-base-100);
         border-radius: 0.5rem;
+        max-width: 20rem;
         padding: 1rem;
     }
 
@@ -27,14 +27,14 @@ excerpt: Smooth typography styling for every device.
         margin-left: 50%;
         max-width: 95vw;
         padding: 2rem;
-        width: min(95vw, 100% + 8rem);
         transform: translateX(-50%);
+        width: min(95vw, 100% + 8rem);
     }
 
     .clamped {
-        max-width: 100%;
         --tt-key: none;
         font-size: clamp(100%, calc(0.95rem + 0.25vw), 125%);
+        max-width: 100%;
     }
 </style>
 
@@ -217,3 +217,7 @@ These cards have a smaller width, and therefore use a smaller font size.
         </p>
     </div>
 </div>
+
+## TODO: Note about frameworks like Svelte
+### TODO: Svelte useFluidType action
+## TODO: Conclusion
