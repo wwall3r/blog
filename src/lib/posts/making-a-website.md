@@ -31,7 +31,7 @@ any number of wordpress plugins, webflow, ghost.org, or other services to genera
 a blog that has all kinds of fancy features to get you all hooked up with comments
 and link-backs and social integrations and marketing.
 
-That sounds terrible. I have precious few social accounts as it is. We're gonna
+That sounds terrible. I have precious few social accounts as it is and I aim to
 keep it that way.
 
 The other thing those services get you is WYSIWYG editors. Developers despise
@@ -99,4 +99,4 @@ The core of it is [Coolify](https://coolify.io).
 ## Wrapping up
 
 I expect to have some individual posts as I implement each of those decisions,
-and the design system may be more of a series.
+
