@@ -1,13 +1,13 @@
 ---
 author: "William Wall"
 title: "Making a Website"
-date: "2023-07-18"
+date: "2024-09-11"
 updated: "2024-09-11"
 categories:
   - "projects"
   - "making of"
   - "svelte"
-coverImage: "/images/jefferson-santos-fCEJGBzAkrU-unsplash.jpg"
+coverImage: ""
 coverWidth: 16
 coverHeight: 9
 excerpt: I started a blog. Maybe this will be a project I actually finish?
