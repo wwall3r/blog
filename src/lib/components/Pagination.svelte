@@ -34,3 +34,48 @@
 		</nav>
 	{/if}
 {/key}
+
+<style>
+  .pagination {
+    margin: 0 0 1rem;
+  }
+
+  .pagination ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    list-style-type: none;
+    gap: 0.5rem;
+    margin: 0;
+    padding: 0;
+  }
+
+  .pagination li {
+    margin: 0;
+  }
+
+  .pagination a {
+    background: var(--lightAccent);
+    text-decoration: none;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2em;
+    height: 2em;
+    font-family: var(--primaryFont);
+    font-weight: bold;
+    transition: background 0.1s;
+  }
+
+  .pagination a:hover {
+    background: var(--accent);
+    color: var(--background);
+  }
+
+  .pagination a[aria-current="true"] {
+    background: var(--accent);
+    color: var(--background);
+    border: 1px solid currentColor;
+  }
+</style>

@@ -1,6 +1,6 @@
 <!-- This is the global layout file; it "wraps" every page on the site. (Or more accurately: is the parent component to every page component on the site.) -->
 <script>
-	import '$lib/assets/scss/global.scss';
+	import '$lib/assets/css/global.css';
 	import Header from '$lib/components/Header.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 	import { currentPage, isMenuOpen } from '$lib/assets/js/store';
@@ -46,3 +46,19 @@
 	{/key}
 	<Footer />
 </div>
+
+<style>
+  .layout {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+  }
+
+  main {
+    width: 100%;
+    max-width: 42rem;
+    margin: 6rem auto;
+    padding: 0 1rem;
+  }
+</style>

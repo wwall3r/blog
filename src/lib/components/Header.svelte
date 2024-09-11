@@ -21,3 +21,25 @@
 	<HamburgerMenuButton />
 	<MainNav />
 </header>
+
+<style>
+  .skip-to-content-link {
+    position: absolute;
+    top: -6rem;
+    left: 0;
+    padding: 0.5em;
+    opacity: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 3rem;
+    background: var(--darker);
+    color: var(--background);
+  }
+
+  .skip-to-content-link:focus {
+    transform: translateY(6rem);
+    opacity: 1;
+    z-index: 11;
+  }
+</style>

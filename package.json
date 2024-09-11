@@ -20,9 +20,7 @@
     "prettier-plugin-svelte": "^2.10.1",
     "rehype-autolink-headings": "^6.1.1",
     "rehype-slug": "^5.1.0",
-    "sass": "^1.63.6",
     "svelte": "^4.0.5",
-    "svelte-preprocess": "^5.0.4",
     "vite": "^4.4.4"
   },
   "type": "module"

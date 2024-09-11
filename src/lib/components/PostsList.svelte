@@ -24,3 +24,22 @@
 		</li>
 	{/each}
 </ul>
+
+<style>
+  .posts-list {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  .posts-list li {
+    margin-bottom: 6rem;
+  }
+
+  .posts-list img + h2 {
+    margin-top: 1rem;
+  }
+
+  .posts-list a {
+    display: block;
+  }
+</style>

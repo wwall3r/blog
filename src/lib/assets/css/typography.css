@@ -1,0 +1,49 @@
+body {
+  font-size: var(--font-base);
+  color: var(--text-base);
+  line-height: var(--font-line-height);
+}
+
+p {
+  margin-bottom: var(--vertical-rhythm);
+}
+
+h1 {
+  font-size: calc(2.4416 * var(--font-base));
+  margin-bottom: calc(2 * var(--vertical-rhythm));
+}
+
+h2 {
+  font-size: calc(1.9527 * var(--font-base));
+  margin-bottom: var(--vertical-rhythm);
+}
+
+h3 {
+  font-size: calc(1.5627 * var(--font-base));
+  margin-bottom: var(--vertical-rhythm);
+}
+
+h4 {
+  font-size: calc(1.25 * var(--font-base));
+}
+
+a {
+  color: var(--color-neutral-100);
+}
+
+ul {
+  list-style-type: square;
+  padding-left: 1.5rem;
+
+  ul {
+    list-style-type: circle;
+  }
+
+  ::marker {
+    color: var(--color-brand);
+  }
+}
+
+li {
+  margin-bottom: 0.25rem;
+}

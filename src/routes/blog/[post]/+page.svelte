@@ -60,3 +60,37 @@
 		</aside>
 	{/if}
 </article>
+
+<style>
+  .post h1 {
+    margin-bottom: 1rem;
+  }
+
+  .post .meta {
+    font-size: 0.8rem;
+    margin-bottom: 4rem;
+  }
+
+  .post img + h1 {
+    margin-top: 1rem;
+  }
+
+  .post-footer ul {
+    padding: 0;
+  }
+
+  .post-footer li {
+    display: inline-block;
+    font-size: 0.8rem;
+  }
+
+  .post-footer li a {
+    background-color: var(--lightAccent);
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+
+  .post-footer li + li {
+    margin-left: 0.5rem;
+  }
+</style>
