@@ -1,4 +1,5 @@
 ---
+author: "William Wall"
 title: "Making a Website"
 date: "2023-07-18"
 updated: "2023-07-18"
@@ -15,7 +16,7 @@ excerpt: I started a blog. Maybe this will be a project I actually finish?
 
 So I started a blog. Or really a website to serve as an online presence, portfolio,
 and playground. But since writing is apparently good for you, I intend to document
-my projects, thoughts on various dev tech or concepts, and other musings.
+my projects and thoughts on various topics (dev-related and otherwise).
 
 Starting with how I made this thing and the why behind some of the decisions.
 
@@ -53,7 +54,7 @@ way too high. Let's not run a database if we can help it.
 40% less code per component on average than React/Next, and much faster to boot.
 Easily one of the greatest boosts in developer productivity I've ever seen.
 Svelte repackages what you already know (HTML, CSS, and TS/JS) and ties them
-together in a signifcantly smoother fashion.
+together in a significantly smoother fashion.
 
 (Also, sorry to Solid and Inferno, who get an A+ for performance, but I just
 don't care for JSX. Definitely check them out if you do.)
@@ -63,8 +64,8 @@ don't care for JSX. Definitely check them out if you do.)
 
 #### Markdown
 
-It seems like there are already some good existing libraries for this, and the
-real kicker is having a standard way of describing the post metadata already.
+It seems like there are already some good libraries which already exist for this,
+and the real kicker is having a standard way of describing the post metadata already.
 Otherwise I may have been tempted to just write the posts in plain HTML/Svelte.
 
 [mdsvex](https://mdsvex.com) |
@@ -84,13 +85,14 @@ Probably Fastly or Cloudflare.
 
 #### Intrinsic Design
 
-Because this is something I'd like to learn about. The vast majority of projects,
-off-the-shelf design systems, and styling libraries over the last 15 years
-have targeted Responsive Design with breakpoints at various sizes. Intrinsic
-Design says we can do something smoother without using breakpoint cases.
+Because this is something I'd like to learn more about. The vast majority of
+projects, off-the-shelf design systems, and styling libraries over the last 15
+years have targeted Responsive Design with breakpoints at various sizes.
+Intrinsic Design says we can do something smoother without using breakpoint cases.
 
 A blog doesn't typically have nearly as many components as a full-blown app, but
-I'm going to attempt to roll my own design system to see how that feels.
+I'm going to attempt to roll my own design system with that in mind to see how
+it feels.
 
 #### Deployment
 

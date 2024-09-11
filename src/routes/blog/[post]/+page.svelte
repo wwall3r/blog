@@ -62,10 +62,6 @@
 </article>
 
 <style>
-  .post h1 {
-    margin-bottom: 1rem;
-  }
-
   .post .meta {
     font-size: 0.8rem;
     margin-bottom: 4rem;

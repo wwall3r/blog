@@ -55,6 +55,7 @@ h1 {
   --tt-key: heading-and-p;
   --tt-scale: 2.4416;
   --vertical-rhythm-count: 2;
+  color: var(--color-brand);
 }
 
 h2 {
