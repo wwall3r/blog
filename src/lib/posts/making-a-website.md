@@ -46,7 +46,7 @@ Static site. Svelte/SvelteKit. Markdown. CDNs. Pico CSS.
 #### Static Site
 
 Because -- let's be honest -- the number of unfinished side projects I have is
-way too high. Let's not run a database if we can help it.
+way too high. I would rather not run a database if I can help it.
 
 #### Svelte/SvelteKit
 
