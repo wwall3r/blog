@@ -37,6 +37,7 @@
     --color-white: #fff;
     --color-black: #152030;
 
+    --text-brand: var(--color-white);
     --text-base: var(--color-black);
     --text-neutral: var(--color-white);
   }
