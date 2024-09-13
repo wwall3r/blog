@@ -10,7 +10,7 @@
 		coverImage,
 		coverWidth,
 		coverHeight,
-		categories,
+		tags,
 	} = data.meta;
 	const { PostContent } = data;
 </script>
@@ -59,15 +59,15 @@
 
 	<svelte:component this={PostContent} />
 
-	{#if categories}
+	{#if tags}
 		<hr />
 		<footer>
 			<h4>Posted in:</h4>
 			<ul title="categories">
-				{#each categories as category}
+				{#each tags as tag}
 					<li>
-						<a href="/blog/category/{category}/">
-							{category}
+						<a href="/blog/tag/{tag}/">
+							{tag}
 						</a>
 					</li>
 				{/each}

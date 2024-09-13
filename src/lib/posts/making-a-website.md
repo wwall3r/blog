@@ -3,7 +3,7 @@ author: "William Wall"
 title: "Making a Website"
 date: "2024-09-11"
 updated: "2024-09-11"
-categories:
+tags:
   - "projects"
   - "making of"
   - "svelte"

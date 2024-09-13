@@ -1,7 +1,7 @@
 <script>
-	import PostsList from '$lib/components/PostsList.svelte';
-	import Pagination from '$lib/components/Pagination.svelte';
-	import { siteDescription } from '$lib/config';
+	import PostsList from "$lib/components/PostsList.svelte";
+	import Pagination from "$lib/components/Pagination.svelte";
+	import { siteDescription } from "$lib/config";
 
 	export let data;
 </script>
@@ -13,7 +13,10 @@
 
 <h1>Blog</h1>
 
-<p>Want updates? Just <a href="/api/rss.xml">subscribe to the RSS feed</a>.</p>
+<p>
+	<a href="/blog/tag">Browse by tag.</a> Want updates? Just
+	<a href="/api/rss.xml">subscribe to the RSS feed</a>.
+</p>
 
 <PostsList posts={data.posts} />
 
