@@ -1,13 +1,13 @@
 <!-- This is the global layout file; it "wraps" every page on the site. (Or more accurately: is the parent component to every page component on the site.) -->
 <script>
-	import '$lib/assets/css/global.css';
-	import Header from '$lib/components/Header.svelte';
-	import Footer from '$lib/components/Footer.svelte';
-	import { currentPage, isMenuOpen } from '$lib/assets/js/store';
-	import { navItems } from '$lib/config';
-	import { preloadCode } from '$app/navigation';
-	import { onMount } from 'svelte';
-	import { fade } from 'svelte/transition';
+	import "$lib/assets/css/global.css";
+	import Header from "$lib/components/Header.svelte";
+	import Footer from "$lib/components/Footer.svelte";
+	import { currentPage, isMenuOpen } from "$lib/assets/js/store";
+	import { navItems } from "$lib/config";
+	import { preloadCode } from "$app/navigation";
+	import { onMount } from "svelte";
+	import { fade } from "svelte/transition";
 	export let data;
 
 	const transitionIn = { delay: 150, duration: 150 };
@@ -39,14 +39,13 @@
 -->
 <Header />
 {#key data.path}
-	<main class="container" tabindex="-1" in:fade={transitionIn} out:fade={transitionOut}>
+	<main
+		class="container"
+		tabindex="-1"
+		in:fade={transitionIn}
+		out:fade={transitionOut}
+	>
 		<slot />
 	</main>
 {/key}
 <Footer />
-
-<style>
-	main {
-		min-height: 100vh;
-	}
-</style>

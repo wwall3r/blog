@@ -1,3 +1,13 @@
 @import "@picocss/pico/css/pico.purple.min.css";
 @import "./code.css";
 @import "./prism.css";
+
+body > #svelte {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+}
+
+body > #svelte > footer {
+	margin-top: auto;
+}
