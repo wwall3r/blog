@@ -98,5 +98,5 @@ The core of it is [Coolify](https://coolify.io).
 
 ## Wrapping up
 
-I expect to have some individual posts as I implement each of those decisions,
+I expect to have some individual posts as I implement each of those decisions.
 
