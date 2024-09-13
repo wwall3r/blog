@@ -2,8 +2,16 @@
 <script>
 	export let data;
 
-	const { title, excerpt, date, updated, coverImage, coverWidth, coverHeight, categories } =
-		data.meta;
+	const {
+		title,
+		excerpt,
+		date,
+		updated,
+		coverImage,
+		coverWidth,
+		coverHeight,
+		categories,
+	} = data.meta;
 	const { PostContent } = data;
 </script>
 
@@ -43,8 +51,8 @@
 
 		<p>
 			<small>
-			Published: {date}
-			Updated: {updated}
+				Published: {date}
+				Updated: {updated}
 			</small>
 		</p>
 	</header>
@@ -55,22 +63,40 @@
 		<hr />
 		<footer>
 			<h4>Posted in:</h4>
-			<nav>
-				<ul>
-					{#each categories as category}
-						<li>
-							<a href="/blog/category/{category}/">
-								{category}
-							</a>
-						</li>
-					{/each}
-				</ul>
-			</nav>
+			<ul title="categories">
+				{#each categories as category}
+					<li>
+						<a href="/blog/category/{category}/">
+							{category}
+						</a>
+					</li>
+				{/each}
+			</ul>
 		</footer>
 	{/if}
 </section>
 
 <style>
+	h1 {
+		color: var(--pico-primary);
+	}
+
+	footer h4 {
+		display: inline;
+	}
+
+	footer ul {
+		display: inline;
+		margin-left: 0.5rem;
+		padding: 0;
+	}
+
+	footer li {
+		list-style-type: none;
+		display: inline;
+		margin-right: 0.5rem;
+	}
+
 	.cover-image {
 		width: 100%;
 	}

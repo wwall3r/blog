@@ -1,18 +1,17 @@
 <script>
-	import { timezoneOffset } from '$lib/config';
+	import { timezoneOffset } from "$lib/config";
 
 	export let posts = [];
 
 	function getHumanDate(isoDateStr) {
-		return new Date(Date.parse(isoDateStr) - timezoneOffset)
-			.toLocaleString(
-				'en-US', 
-				{
-					year: 'numeric',
-					month: 'long',
-					day: 'numeric',
-				}
-			);
+		return new Date(Date.parse(isoDateStr) - timezoneOffset).toLocaleString(
+			"en-US",
+			{
+				year: "numeric",
+				month: "long",
+				day: "numeric",
+			},
+		);
 	}
 </script>
 
@@ -33,7 +32,10 @@
 					<h2>{post.title}</h2>
 					<p>{post.excerpt}</p>
 				</hgroup>
-				<a aria-label="Post: {post.title}, on {getHumanDate(post.date)}" href="/blog/{post.slug}">Read more</a>
+				<a
+					aria-label="Post: {post.title}, on {getHumanDate(post.date)}"
+					href="/blog/{post.slug}">Read more</a
+				>
 				<footer>
 					<a href="/blog/{post.slug}" class="secondary">Read more</a>
 					<small>{getHumanDate(post.date)}</small>
@@ -44,19 +46,23 @@
 </ul>
 
 <style>
-  .posts-list {
-    list-style-type: none;
-    padding: 0;
-  }
+	h2 {
+		color: var(--pico-primary);
+	}
 
-  .posts-list li {
+	.posts-list {
+		list-style-type: none;
+		padding: 0;
+	}
+
+	.posts-list li {
 		list-style: none;
-    margin-bottom: 2rem;
-  }
+		margin-bottom: 2rem;
+	}
 
-  .posts-list img + h2 {
-    margin-top: 1rem;
-  }
+	.posts-list img + h2 {
+		margin-top: 1rem;
+	}
 
 	.post {
 		position: relative;
