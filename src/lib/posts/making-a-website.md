@@ -10,7 +10,7 @@ tags:
 coverImage: ""
 coverWidth: 16
 coverHeight: 9
-excerpt: I started a blog. Maybe this will be a project I actually finish?
+excerpt: I started a blog. Perhaps this will be a project I actually finish?
 ---
 
 So I started a blog. Or really a website to serve as an online presence, portfolio,
