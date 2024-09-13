@@ -1,12 +1,12 @@
 <script>
-	import MainNav from './MainNav.svelte';
-	import { siteTitle } from '$lib/config';
+	import MainNav from "./MainNav.svelte";
+	import Logo from "./Logo.svelte";
 </script>
 
 <header class="container">
 	<nav>
 		<ul>
-			<li><strong><a href="/">{siteTitle}</a></strong></li>
+			<li><Logo /></li>
 		</ul>
 		<MainNav />
 	</nav>

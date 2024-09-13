@@ -5,10 +5,10 @@
  * PLEASE BE SURE TO UPDATE THEM ALL! Thank you!
  **/
 
-export const siteTitle = "My Awesome Blog";
+export const siteTitle = "will@nite";
 export const siteDescription = "Built with the SvelteKit Static Blog Starter";
 export const siteURL = "wallw.dev";
-export const siteLink = "https://github.com/wwall3r/blog";
+export const siteLink = "https://wallw.dev/blog";
 export const siteAuthor = "William Wall";
 export const timezoneOffset = -360 * 60 * 1000;
 
