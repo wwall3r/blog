@@ -3,7 +3,7 @@
 	import "$lib/assets/css/global.css";
 	import Header from "$lib/components/Header.svelte";
 	import Footer from "$lib/components/Footer.svelte";
-	import { currentPage, isMenuOpen } from "$lib/assets/js/store";
+	import { currentPage } from "$lib/assets/js/store";
 	import { navItems } from "$lib/config";
 	import { preloadCode } from "$app/navigation";
 	import { onMount } from "svelte";

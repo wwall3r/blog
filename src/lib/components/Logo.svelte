@@ -1,5 +1,7 @@
 <script>
 	import { siteTitle } from "$lib/config";
+
+	export let size = "";
 </script>
 
 <svelte:head>
@@ -9,7 +11,7 @@
 	/>
 </svelte:head>
 
-<a href="/">
+<a href="/" class={size}>
 	{siteTitle}
 </a>
 
@@ -24,9 +26,14 @@
 		font-weight: 400;
 		color: var(--logo-color);
 
+		text-decoration: none;
 		animation:
 			flicker 3s 0s 1,
 			pulsate 4s 3s infinite alternate;
+	}
+
+	.lg {
+		font-size: 6rem;
 	}
 
 	a:hover {

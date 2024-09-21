@@ -7,7 +7,7 @@
 
 export const siteTitle = "will@nite";
 export const siteDescription =
-	"regrets, grievances, hopes, and learnings of a seasoned software engineer";
+	"the regrets, grievances, hopes, and learnings of a seasoned software engineer";
 export const siteURL = "wallw.dev";
 export const siteLink = "https://wallw.dev/blog";
 export const siteAuthor = "William Wall";
