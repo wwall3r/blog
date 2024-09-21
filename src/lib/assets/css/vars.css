@@ -1,0 +1,10 @@
+/* Automatically enabled if user has Dark mode enabled */
+@media only screen and (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+		--pico-box-shadow: rgba(240, 46, 170, 0.3) 4px 4px 9px;
+  }
+}
+/* Enabled if forced with data-theme="dark" */
+[data-theme=dark] {
+	--pico-box-shadow: rgba(240, 46, 170, 0.3) 4px 4px 9px;
+}
