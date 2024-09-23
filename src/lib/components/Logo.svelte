@@ -37,6 +37,7 @@
 	}
 
 	a:hover {
+		text-decoration: underline;
 		text-decoration-thickness: 1px;
 	}
 
