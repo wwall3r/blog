@@ -14,7 +14,7 @@
 <h1>Blog</h1>
 
 <p>
-	<a href="/blog/tag">Browse by tag.</a> Want updates? Just
+	<a href="/blog/tag">Browse by tag</a>. Want updates? Just
 	<a href="/api/rss.xml">subscribe to the RSS feed</a>.
 </p>
 
